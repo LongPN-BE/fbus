@@ -1,12 +1,9 @@
 package com.example.fbus.enity;
 
-import javax.persistence.Entity;
-import javax.persistence.GeneratedValue;
-import javax.persistence.Id;
-import javax.persistence.Table;
+import javax.persistence.*;
 
 @Entity
-@Table(name = Tbl_area)
+@Table(name = "tbl_area")
 public class Area {
 
     @Id
@@ -14,15 +11,17 @@ public class Area {
     private String id;
 
     private String name;
-    private String cityId;
+
+    @ManyToOne(targetEntity = City.class)
+    @JoinColumn(name = "city_id", referencedColumnName = "id")
+private City city;
 
     public Area() {
     }
 
-    public Area(String id, String name, String cityId) {
+    public Area(String id, String name) {
         this.id = id;
         this.name = name;
-        this.cityId = cityId;
     }
 
     public String getId() {
@@ -41,11 +40,11 @@ public class Area {
         this.name = name;
     }
 
-    public String getCityId() {
-        return cityId;
+    public City getCity() {
+        return city;
     }
 
-    public void setCityId(String cityId) {
-        this.cityId = cityId;
+    public void setCity(City city) {
+        this.city = city;
     }
 }
