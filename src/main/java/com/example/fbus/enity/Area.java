@@ -14,7 +14,7 @@ public class Area {
 
     @ManyToOne(targetEntity = City.class)
     @JoinColumn(name = "city_id", referencedColumnName = "id")
-private City city;
+    private City city;
 
     public Area() {
     }

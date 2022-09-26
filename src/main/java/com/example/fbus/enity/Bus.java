@@ -1,9 +1,10 @@
 package com.example.fbus.enity;
 
+
 import javax.persistence.*;
 
 @Entity
-@Table(name = "Tbl_bus")
+@Table(name = "tbl_bus")
 public class Bus {
 
     @Id
